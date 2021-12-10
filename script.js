@@ -10,11 +10,15 @@ $('#searchButton').on('click', function(){
     (data) => {
       console.log(data);
       const keyNum = data.objectIDs;
-      console.log(keyNum[1]);
+      const arrayList = keyNum.length +1;
+      const randomKey =  Math.floor(Math.random() * arrayList)
+
+      console.log(arrayList);
+      console.log(randomKey);
 
 
       const promise2 = $.ajax({
-        url: `https://collectionapi.metmuseum.org/public/collection/v1/objects/${keyNum[1]}`,
+        url: `https://collectionapi.metmuseum.org/public/collection/v1/objects/${keyNum[randomKey]}`,
       });
       
       promise2.then(
@@ -24,8 +28,9 @@ $('#searchButton').on('click', function(){
           const department = keyData.department;
           const artistName= keyData.artistDisplayName;
           const bio = keyData.artistDisplayBio;
-          $('.infos').html(`<p>Title: ${artistName} <br/>Bio: ${bio} <br/>Department: ${department}</p>`);
+          const medium = keyData.medium;
 
+          $('.infos').html(`<p>Title: ${artistName} <br/>Bio: ${bio} <br/>Department: ${department} </br>Medium: ${medium}</p>`);
         },
         (error) => {
           console.log("bad request: ", error);
