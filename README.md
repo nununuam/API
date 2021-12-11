@@ -1,5 +1,5 @@
 The API being used here is 'The Metropolitan Museum of Art Collection API'.
-The link is below:
+The link:
 https://metmuseum.github.io
 
 There are two feature on this page. A search feature and a random feature.
