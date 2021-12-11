@@ -96,9 +96,9 @@ $('#randomButton').on('click', function(){
       promise4.then((aID) => {
 
         //grabbing the image url from the data and displaying on html
-        const img = aID.primaryImage;
-          $('.image').html(`<img src = ${img}>`)
-
+        let img = aID.primaryImage;
+        $('.image').html(`<img src = ${img}>`)
+        
           //Assigned different type of data to a variable
           const department = aID.department;
           const artistName= aID.artistDisplayName;
